@@ -15,9 +15,9 @@ public class UDPClient {
         ReliableSocket socket = new ReliableSocket();
 
         if (socket.send(packet)) {
-            System.out.println("send successful");
+            System.out.println("Success");
         } else {
-            System.out.println("send error");
+            System.out.println("Error");
         }
     }
 }

@@ -3,7 +3,6 @@ package homework.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.SocketException;
 
 public class ReliableSocket {
@@ -62,12 +61,12 @@ public class ReliableSocket {
 
         header[0] = (byte) ReliablePacket.TYPE.CONFIRMATION.ordinal();
         DatagramPacket confirmation =
-                new DatagramPacket(
-                        header,
-                        ReliablePacket.HEADER_LENGTH,
-                        message.getAddress(),
-                        message.getPort()
-                );
+            new DatagramPacket(
+                header,
+                ReliablePacket.HEADER_LENGTH,
+                message.getAddress(),
+                message.getPort()
+            );
 
         mDatagramSocket.send(confirmation);
     }

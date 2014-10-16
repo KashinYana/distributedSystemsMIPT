@@ -16,6 +16,6 @@ public class UDPServer {
         socket.receive(packet);
         String result = new String(packet.getBuffer(), 0, packet.getLength());
 
-        System.out.println("received: " + result);
+        System.out.println("message: " + result);
     }
 }
