@@ -2,6 +2,7 @@ package restapi;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class CommandMV {
     private String mToken;
@@ -12,7 +13,8 @@ public class CommandMV {
     }
 
     public URL getRequestURL(String pathFrom, String pathTo) throws Exception {
-        return new URL(CommandHelper.RESOURCES_URL + "/move?from=" + pathFrom + "&path=" + pathTo);
+        return new URL(CommandHelper.RESOURCES_URL + "/move?from=" + URLEncoder.encode(pathFrom, "UTF-8")
+                + "&path=" + URLEncoder.encode(pathTo, "UTF-8"));
     }
 
     public HttpURLConnection getConnection(String pathFrom, String pathTo) throws Exception {

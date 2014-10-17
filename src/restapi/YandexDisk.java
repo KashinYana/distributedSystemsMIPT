@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class YandexDisk {
-    private static String token = "<token>";
+    private static String token = "<....>";
     public static String EXIT = "exit";
     public static String RM = "rm";
     public static String CP = "cp";
@@ -26,26 +26,30 @@ public class YandexDisk {
                 CommandCP commandCP = new CommandCP(token);
                 if (words.length < 3) {
                     System.out.println(commandCP.HELP);
+                } else {
+                    commandCP.execute(words[1], words[2]);
                 }
-                commandCP.execute(words[1], words[2]);
             } else if (line.startsWith(MV)) {
                 CommandMV commandMV = new CommandMV(token);
                 if (words.length < 3) {
                     System.out.println(commandMV.HELP);
+                } else {
+                    commandMV.execute(words[1], words[2]);
                 }
-                commandMV.execute(words[1], words[2]);
             } else if (line.startsWith(LS)) {
                 CommandLS commandLS = new CommandLS(token);
                 if (words.length < 2) {
                     System.out.println(commandLS.HELP);
+                } else {
+                    commandLS.execute(words[1]);
                 }
-                commandLS.execute(words[1]);
             } else if (line.startsWith(RM)) {
                 CommandRM commandRM = new CommandRM(token);
                 if (words.length < 2) {
                     System.out.println(commandRM.HELP);
+                } else {
+                    commandRM.execute(words[1]);
                 }
-                commandRM.execute(words[1]);
             }
         }
     }

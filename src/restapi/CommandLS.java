@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class CommandLS {
     private String mToken;
@@ -19,7 +20,7 @@ public class CommandLS {
     }
 
     public URL getRequestURL(String path) throws Exception {
-        return new URL(CommandHelper.RESOURCES_URL + "/?path=" + path);
+        return new URL(CommandHelper.RESOURCES_URL + "/?path=" + URLEncoder.encode(path, "UTF-8"));
     }
 
     public HttpURLConnection getConnection(String path) throws Exception {

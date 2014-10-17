@@ -2,6 +2,7 @@ package restapi;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class CommandCP {
     private String mToken;
@@ -12,7 +13,8 @@ public class CommandCP {
     }
 
     public URL getRequestURL(String pathFrom, String pathTo) throws Exception {
-        return new URL(CommandHelper.RESOURCES_URL + "/copy?from=" + pathFrom + "&path=" + pathTo);
+        return new URL(CommandHelper.RESOURCES_URL + "/copy?from=" + URLEncoder.encode(pathFrom, "UTF-8")
+                + "&path=" + URLEncoder.encode(pathTo, "UTF-8"));
     }
 
     public HttpURLConnection getConnection(String pathFrom, String pathTo) throws Exception {
@@ -23,7 +25,7 @@ public class CommandCP {
         return connection;
     }
 
-    public void execute(String pathFrom, String pathTo) throws Exception{
+    public void execute(String pathFrom, String pathTo) throws Exception {
         HttpURLConnection connection = getConnection(pathFrom, pathTo);
 
         int code = connection.getResponseCode();
